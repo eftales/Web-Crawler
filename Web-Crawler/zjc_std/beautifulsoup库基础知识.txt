@@ -1,0 +1,40 @@
+beautifulsoup类的基本元素：
+Tag:	标签,可以具体赋值比如说head,body等等
+Name:	标签的名字 
+Attributes:	标签的属性
+NavigableString:	标签内非属性字符串
+
+
+
+
+想要看解析结果，使用soup类的prettify方法需要加上括号
+print(soup.prettify())
+
+
+用库函数查找所有链接
+from bs4 import BeautifulSoup
+soup = BeautifulSoup(demo,"html.parser")
+for link in soup.find_all('a'):
+	print(link.get('herf'))
+
+等价的写法还有：
+link.attrs["href"]
+也可以提取出跳转链接
+
+
+常用提取框架
+def fillUnivlist(ulist,html):
+    soup = BeautifulSoup(html,"html.parser")
+    for tr in soup.find('tbody').children:
+        if isinstance(tr,bs4.element.Tag):
+            tds = tr('td')
+            ulist.append([tds[0].string,tds[1].string,tds[2].string,])
+
+提取有属性的标签
+soup.find('div', attrs={'class':'stock-bet'})
+
+一种找关键词的方法：
+import re
+soup.find_all(string = re.compile("***"))
+找到
+soup中所有含有"***"的字段

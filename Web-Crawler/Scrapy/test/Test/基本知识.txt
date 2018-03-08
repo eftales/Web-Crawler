@@ -1,0 +1,7 @@
+scrapy.cfg	scrapy部署文件
+
+
+cmd：
+新建工程 scrapy startproject <project_name>
+产生爬虫 scrapy genspider <spider_name> <allowed_domains>
+开始爬取 scrapy crawl <spider_name>

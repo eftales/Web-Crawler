@@ -1,0 +1,64 @@
+正则表达式的编译：
+	将一个字符串编译为一个特征
+常用操作符：
+.	表示任何单个字符(除了\n)
+[ ]	字符集，对单个字符给出取值范围
+[^]	非字符集，对单个字符给出排除范围
+*	前一个字符进行0或无限次扩展
++	前一个字符进行1或无限次扩展
+?	欠你一个字符0或1次扩展
+|	表达式左右任意一个
+{m}	扩展前一个字符m次
+{m,n}	扩展前一个字符m至n此
+^,$	表示字符串的开头结尾
+( )	分组标记，括号内只能使用或|操作符
+\d	表示数字==[0-9]
+\w	==[A-Za-z0-9]
+\s	可以匹配任意一个空白字符，例如[ (空格),\t,\n,\r,\f,\v]
+
+经典表达式：
+[\u4e00-\u9fa5]	匹配中文字符
+
+
+正则表达式的表示类型：
+一般采用原生字符串类型（row string）：即r'dsdsds\d'
+若采用string类型，则'dsdsds\\d'才行
+
+
+正则表达式的主要函数
+re.search(pattern,string,flags=0)		匹配到一个为止
+re.match(pattern,string,flags=0)		string必须以pattern开始
+re.findall(pattern,string,flags=0)		找到全部
+re.split(pattern,string,maxsplit=0,flags=0)	按pattern进行分割
+	>>>re.split(r'[1-9]\d{5}', 'BIT100081 TSU100084')
+	['BIT',' TSU','']
+	>>>re.split(r'[1-9]\d{5}', 'BIT100081 TSU100084',maxsplit=1)
+	['BIT',' TSU100084']
+re.sub(pattern,repl,string,count=0,flags=0)	把pattern替换为repl
+
+
+
+
+面向对象用法：
+pat=re.compile(r'pattern')
+rst = pat.search('string')
+
+
+match对象：
+search,match返回的是match对象
+match对象有如下属性：
+.string		待（还没有）匹配的文本
+.re		== pattern
+.pos		正则表达式搜索文本的开始位置
+.endpos		正则表达式搜索文本的结束位置
+
+match对象有如下方法：
+.group(0)	获得匹配后的字符串
+.start()	匹配字符串在原始字符串的开始位置
+.end()
+
+
+
+最小匹配与贪婪匹配：
+在表示扩展的字符后面加上?表示最小匹配
++?	??	*?

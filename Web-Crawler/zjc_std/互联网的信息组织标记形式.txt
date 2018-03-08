@@ -1,0 +1,15 @@
+html：超文本标记语言。将非字符串的信息表达成字符串
+
+xml：是html的扩充，语法类似
+
+json：JS中的数据组织形式，主要是key:value 键值对的形式存在的//不能注释
+	主要有一下几种格式
+	key :  value
+	key : [value1,vallue2]
+	key :{
+		key1 : value1
+		key2 : value2		
+		}
+	key和value都是有类型的，如果是字符串就用" "包起来就好
+
+yaml: 与JS类似，但无类型键值对//主要用在配置文件里面

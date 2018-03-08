@@ -1,0 +1,11 @@
+request库有7种方法：
+0.request 构造请求 最基本的请求
+1.GET 获取URL位置的资源；
+2.HEAD 获取URL位置资源的头部信息
+3.POST 附加新的数据
+4.PUT 提交新资源，覆盖原有资源
+5.PATCH 局部更新资源
+6.DELETE 删除资源
+
+headers伪装：
+将requests.get(url,headers = {"user-agent":"Mozilla/5.0"})
